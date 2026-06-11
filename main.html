@@ -126,6 +126,24 @@
                 document.getElementById('display').value = 'Error';
             }
         }
+
+        document.addEventListener('keydown', function (event) {
+            const key = event.key;
+
+            if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '+', '-', '*', '/'].includes(key)) {
+                event.preventDefault();
+                appendToDisplay(key);
+            } else if (key === 'Enter' || key === '=') {
+                event.preventDefault();
+                calculate();
+            } else if (key === 'Backspace') {
+                event.preventDefault();
+                backspace();
+            } else if (key === 'Escape') {
+                event.preventDefault();
+                clearDisplay();
+            }
+        });
     </script>
 </body>
 </html>
